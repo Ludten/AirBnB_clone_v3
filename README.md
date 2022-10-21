@@ -154,7 +154,9 @@ EOF  all  create  destroy  help  quit  show  update
 No known bugs at this time. 
 
 ## Authors
-Oluwateniola Adegbulugbe - [Github](https://github.com/Ludten) 
+
+Oluwateniola Adegbulugbe - [Github](https://github.com/Ludten)
+
 Nike Oni
 
 ## License
