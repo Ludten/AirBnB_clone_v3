@@ -157,6 +157,5 @@ No known bugs at this time.
 Oluwateniola Adegbulugbe - [Github](https://github.com/Ludten) 
 Nike Oni
 
-Second part of Airbnb: Joann Vuong
 ## License
 Public Domain. No copy write protection. 
