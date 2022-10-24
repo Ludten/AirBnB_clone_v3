@@ -106,7 +106,7 @@ def p_update(place_id):
     abort(400, {'message': 'Not a JSON'})
 
 
-@app_views.route('/places_search ', strict_slashes=False, methods=['POST'])
+@app_views.route('/places_search', strict_slashes=False, methods=['POST'])
 def placesearch():
     """
     Update a place
@@ -136,7 +136,7 @@ def placesearch():
             amenitylist = [storage.get(Amenity, amenity_id)
                            for amenity_id in data['amenities']]
             for place in pslist:
-                if any(amenity in place.amenities
+                if all(amenity in place.amenities
                        for amenity in amenitylist) is False:
                     pslist.remove(place)
         li_places = [place.to_dict() for place in pslist]

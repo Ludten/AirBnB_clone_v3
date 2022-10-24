@@ -39,7 +39,7 @@ def r_id(review_id):
 
 @app_views.route('/reviews/<review_id>', strict_slashes=False,
                  methods=['DELETE'])
-def del_p_id(review_id):
+def del_r_id(review_id):
     """
     Delete review with the passed id
     """
@@ -54,7 +54,7 @@ def del_p_id(review_id):
 
 @app_views.route('/places/<place_id>/reviews', strict_slashes=False,
                  methods=['POST'])
-def p_create(place_id):
+def r_create(place_id):
     """
     Create a review
     """
@@ -85,7 +85,7 @@ def p_create(place_id):
 
 
 @app_views.route('/reviews/<review_id>', strict_slashes=False, methods=['PUT'])
-def p_update(review_id):
+def r_update(review_id):
     """
     Update a review
     """
