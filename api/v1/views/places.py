@@ -116,7 +116,7 @@ def placesearch():
     from models.state import State
     from models.city import City
     data = request.get_json(silent=True)
-    if data:
+    if data is not None:
         if data == {} or all([v == [] for k, v in data.items()]):
             places = storage.all(Place)
             li_places = [v.to_dict() for k, v in places.items()]
@@ -133,6 +133,9 @@ def placesearch():
                 for place in city.places:
                     if place not in pslist:
                         pslist.append(place)
+        if pslist == []:
+            places = storage.all(Place)
+            pslist = [v for k, v in places.items()]
         if 'amenities' in data and data['amenities'] != []:
             amenitylist = [storage.get(Amenity, amenity_id)
                            for amenity_id in data['amenities']]
