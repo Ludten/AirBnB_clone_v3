@@ -136,14 +136,16 @@ def placesearch():
         if pslist == []:
             places = storage.all(Place)
             pslist = [v for k, v in places.items()]
+        li_places = [place.to_dict() for place in pslist]
         if 'amenities' in data and data['amenities'] != []:
             amenitylist = [storage.get(Amenity, amenity_id)
                            for amenity_id in data['amenities']]
             for place in pslist:
                 if all(amenity in place.amenities
                        for amenity in amenitylist) is False:
-                    pslist.remove(place)
-        li_places = [place.to_dict() for place in pslist]
+                    for li_place in li_places:
+                        if place.id == li_place['id']:
+                            li_places.remove(li_place)
         return jsonify(li_places), 200
     else:
         abort(400, {'message': 'Not a JSON'})
