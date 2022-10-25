@@ -98,8 +98,9 @@ def p_update(place_id):
     data = request.get_json(silent=True)
     if data:
         for key, value in data.items():
-            if (key != "id" and key != "created_at" and key != "updated_at"
-                    and key != "city_id" and key != "user_id"):
+            if (key != "id" and key != "created_at" and
+                key != "updated_at" and key != "city_id" and
+                    key != "user_id"):
                 setattr(place, key, value)
         place.save()
         return jsonify(place.to_dict()), 200

@@ -89,8 +89,8 @@ def c_update(city_id):
     data = request.get_json(silent=True)
     if data:
         for key, value in data.items():
-            if (key != "id" and key != "created_at" and key != "updated_at"
-                    and key != "state_id"):
+            if (key != "id" and key != "created_at" and
+                    key != "updated_at" and key != "state_id"):
                 setattr(city, key, value)
         city.save()
         return jsonify(city.to_dict()), 200

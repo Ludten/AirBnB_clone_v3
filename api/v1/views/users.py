@@ -79,8 +79,8 @@ def u_update(user_id):
     data = request.get_json(silent=True)
     if data:
         for key, value in data.items():
-            if (key != "id" and key != "created_at" and key != "updated_at"
-                    and key != 'email'):
+            if (key != "id" and key != "created_at" and
+                    key != "updated_at" and key != 'email'):
                 setattr(user, key, value)
         user.save()
         return jsonify(user.to_dict()), 200
