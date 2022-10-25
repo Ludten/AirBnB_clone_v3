@@ -34,7 +34,7 @@ def custom400(error):
     Handle error 400
     """
     response = jsonify({'error': error.description['message']})
-    return response
+    return response, 400
 
 
 @app.teardown_appcontext
