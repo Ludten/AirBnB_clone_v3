@@ -133,7 +133,6 @@ class TestFileStorage(unittest.TestCase):
         '''
             Check total count of objs in DBStorage
         '''
-        from models import storage
         current_count = models.storage.count()
         new = State()
         models.storage.new(new)
