@@ -96,8 +96,9 @@ def r_update(review_id):
     data = request.get_json(silent=True)
     if data:
         for key, value in data.items():
-            if (key != "id" and key != "created_at" and key != "updated_at"
-                    and key != "place_id" and key != "user_id"):
+            if (key != "id" and key != "created_at" and
+                key != "updated_at" and key != "place_id" and
+                    key != "user_id"):
                 setattr(review, key, value)
         review.save()
         return jsonify(review.to_dict()), 200
